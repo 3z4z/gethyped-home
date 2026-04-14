@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { buttonStyles, iconStyles } from "./SkewButton.style";
 
-export default function SkewButton({ title, icon, iconStyle, buttonStyle }) {
+export default function SkewButton({ title, icon, style }) {
   return (
     <motion.button
       initial="rest"
@@ -18,7 +18,7 @@ export default function SkewButton({ title, icon, iconStyle, buttonStyle }) {
         hovered: { skewY: -4, scale: 1.05, borderRadius: "0.625rem" },
         tapped: { scale: 0.95, borderRadius: "0.875rem" },
       }}
-      className={`${buttonStyles[buttonStyle] || ""} flex items-center gap-2 font-semibold text-xl py-1.5 ps-2.5 pe-1.5 cursor-pointer border`}
+      className={`${buttonStyles[style] || ""} flex items-center gap-2 font-semibold text-xl py-1.5 ps-2.5 pe-1.5 cursor-pointer border max-w-max`}
     >
       {title}
       <motion.span
@@ -35,7 +35,7 @@ export default function SkewButton({ title, icon, iconStyle, buttonStyle }) {
             scale: 1,
           },
         }}
-        className={`${iconStyles[iconStyle] || ""} p-1.5 text-3xl`}
+        className={`${iconStyles[style] || ""} p-1.5 text-3xl`}
       >
         {icon}
       </motion.span>

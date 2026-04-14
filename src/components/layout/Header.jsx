@@ -66,7 +66,7 @@ export default function HeaderSection() {
   return (
     <header
       ref={header}
-      className={`${container} fixed top-0 left-0 w-full flex justify-between items-center py-5.5`}
+      className={`${container} fixed top-0 left-1/2 -translate-x-1/2 flex justify-between items-center py-5.5 z-20`}
     >
       <a href="#" className="w-1/4 left">
         <figure>
@@ -78,8 +78,7 @@ export default function HeaderSection() {
         <SkewButton
           title={"Get Results"}
           icon={<IoFlame />}
-          iconStyle={"secondary"}
-          buttonStyle={"secondary"}
+          style={"secondary"}
         />
       </div>
     </header>

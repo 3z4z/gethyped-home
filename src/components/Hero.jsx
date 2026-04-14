@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/purity */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import vid1 from "../assets/clips/loop-salontopper.mp4";
