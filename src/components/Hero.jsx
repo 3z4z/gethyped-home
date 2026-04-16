@@ -46,7 +46,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="pt-48 pb-20 overflow-hidden">
+    <section className="pt-48 pb-20 overflow-hidden px-10">
       <header className="grid gap-8">
         <h1 className="text-9xl font-semibold tracking-tight max-w-7/10 leading-30">
           Get Hyped. Get Noticed. Get Results.
