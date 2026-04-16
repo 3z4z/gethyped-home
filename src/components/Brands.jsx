@@ -2,7 +2,9 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
+
 import { container } from "../libs/classNames";
+
 import brand1 from "../assets/brands/byte-records.svg";
 import brand2 from "../assets/brands/cisco.svg";
 import brand3 from "../assets/brands/forbes-logo.svg";
@@ -31,13 +33,12 @@ const brands = [
 export default function BrandsSection() {
   return (
     <section className="pt-24 overflow-hidden">
-      <div className={`${container} px-10 mb-12`}>
+      <div className={`${container} px-10 pb-20`}>
         <h2 className="max-w-xl text-[5rem] font-semibold tracking-tight leading-20">
           These brands got hyped.
         </h2>
       </div>
-
-      <div className="flex items-center cursor-grab active:cursor-grabbing">
+      <div className="flex items-center cursor-grab active:cursor-grabbing pb-28">
         <Swiper
           modules={[Autoplay, FreeMode]}
           loop={true}
@@ -53,20 +54,13 @@ export default function BrandsSection() {
         >
           {[...brands, ...brands].map((b, i) => (
             <SwiperSlide className="w-18/100!" key={i}>
-              <figure className="aspect-square p-12 border border-base-content/25 rounded-lg">
+              <figure className="aspect-square p-14 border border-base-content/25 rounded-lg">
                 <img src={b} alt="" />
               </figure>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-
-      <style jsx global>{`
-        /* Essential: Keeps the movement linear even after interaction */
-        .marquee-swiper .swiper-wrapper {
-          transition-timing-function: linear !important;
-        }
-      `}</style>
     </section>
   );
 }

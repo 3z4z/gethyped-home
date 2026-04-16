@@ -11,7 +11,7 @@ export default function RollingButton({ text, icon }) {
         initial: { skewY: 0, scale: 1 },
         hovered: { skewY: icon ? -3 : 0, scale: icon ? 1.05 : 1 },
       }}
-      className={`relative tracking-tight font-semibold ${icon ? "p-3 text-primary border-2 border-base-content/50 text-3xl" : "px-3.5 py-2 text-lg"} rounded-xl overflow-hidden cursor-pointer`}
+      className={`relative tracking-tight font-semibold bg-white ${icon ? "p-3 text-primary border-2 border-base-content/50 text-3xl" : "px-3.5 py-2 text-lg"} rounded-xl overflow-hidden cursor-pointer`}
     >
       <motion.div
         className="block"

@@ -9,7 +9,7 @@
   color-scheme: light; /* color of browser-provided UI */
 
   --color-base-100: #faf4ec;
-  --color-base-200: oklch(95% 0.03 240);
+  --color-base-200: #eae4d8;
   --color-base-300: oklch(92% 0.04 240);
   --color-base-content: #161616;
   --color-primary: #fa5424;
@@ -68,4 +68,8 @@ html {
 
 html::-webkit-scrollbar {
   display: none !important;
+}
+
+.marquee-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
 }
