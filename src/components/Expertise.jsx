@@ -114,7 +114,7 @@ export default function ExpertiseSection() {
           className="card h-screen w-full flex items-center justify-center"
         >
           <div
-            className={`text-6xl font-bold w-full h-[calc(100%-5rem)] lg:p-16 md:p-12 sm:p-10 p-8 rounded-[2.5rem] flex flex-col justify-between ${
+            className={`font-bold w-full max-h-[calc(100%-5rem)] h-full lg:p-16 md:p-12 sm:p-8 p-5 rounded-[2.5rem] flex flex-col justify-between ${
               i === 0
                 ? "bg-white"
                 : i === 1
@@ -126,18 +126,22 @@ export default function ExpertiseSection() {
                       : "bg-base-content"
             }`}
           >
-            <ResponsiveWrapper>
-              <div className="flex justify-between items-center">
+            <ResponsiveWrapper
+              className={
+                "flex h-full flex-col sm:justify-between justify-start"
+              }
+            >
+              <div className="flex justify-between items-center max-sm:pb-5">
                 <div className="flex flex-col gap-4">
-                  <span className="font-medium py-2.25 px-3 rounded-lg md:text-2xl sm:text-xl text-lg bg-base-100 w-max">
+                  <span className="font-medium sm:py-2.25 sm:px-3 px-2 py-1.5 rounded-lg md:text-2xl sm:text-xl xs:text-lg text-sm bg-base-100 w-max">
                     Expertise
                   </span>
-                  <h2 className="text-[3.5rem] sm:text-6xl md:text-7xl lg:text-9xl font-semibold tracking-tight">
+                  <h2 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-semibold tracking-tight">
                     {exp.title}
                   </h2>
                 </div>
                 <p
-                  className={`max-lg:absolute max-lg:top-16 max-lg:right-8 text-[3.5rem] sm:text-6xl md:text-7xl lg:text-9xl font-semibold ${
+                  className={`max-lg:absolute max-lg:top-16 max-lg:right-8 text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-semibold ${
                     i === 0 ? "opacity-15" : "opacity-35 text-base-100"
                   }`}
                 >
@@ -145,12 +149,14 @@ export default function ExpertiseSection() {
                 </p>
               </div>
 
-              <div className="flex justify-between items-end">
-                <div className="flex flex-col gap-6 max-w-lg">
-                  <h3 className="font-semibold text-[2rem] tracking-tight">
+              <div className="flex justify-between sm:items-end items-start max-sm:flex-col-reverse max-sm:gap-5 max-sm:flex-1">
+                <div className="flex flex-col lg:gap-6 gap-2.5 max-w-lg">
+                  <h3 className="font-semibold lg:text-[2rem] sm:text-3xl xs:text-2xl text-xl tracking-tight">
                     {exp.headline}
                   </h3>
-                  <p className="font-medium text-2xl leading-6.5">{exp.text}</p>
+                  <p className="line-clamp-4 font-medium lg:text-2xl sm:text-xl xs:text-lg text-base lg:leading-6.5 sm:leading-5.5 xs:leading-5 leading-4.5">
+                    {exp.text}
+                  </p>
                   <SkewButton
                     title={exp.button}
                     icon={<FaArrowRight />}
@@ -159,10 +165,11 @@ export default function ExpertiseSection() {
                 </div>
 
                 <TiltCard
-                  radius="rounded-[2.5rem]"
+                  radius="lg:rounded-[2.5rem] rounded-2xl"
+                  inset="inset-1 md:inset-2 lg:inset-3"
                   className={`${
                     i === 0 ? "bg-primary" : "bg-base-100"
-                  } rotate-5 aspect-3/4 max-w-96 h-max`}
+                  } sm:rotate-5 -rotate-3 aspect-3/4 lg:max-w-96 md:max-w-72 sm:max-w-56 max-w-42 h-max`}
                 >
                   <video
                     autoPlay

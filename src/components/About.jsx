@@ -7,7 +7,7 @@ import aboutClip from "../assets/clips/about-clip.mp4";
 
 export default function AboutSection() {
   return (
-    <section className="sm:grid grid-cols-12 grid-rows-2 pt-4 pb-48 lg:px-10 md:px-8 sm:px-6 px-4">
+    <section className="sm:grid grid-cols-12 grid-rows-2 pt-4 lg:pb-48 md:pb-36 sm:pb-28 pb-20 lg:px-10 md:px-8 sm:px-6 px-4">
       <h2 className="row-start-1 row-end-2 lg:col-start-2 col-start-1 col-end-12 col-span-12 lg:text-[5rem] md:text-[3.5rem] sm:text-[3rem] text-4xl -tracking-[0.04rem] font-semibold lg:max-w-[85%] max-w-max lg:leading-20 md:leading-14 sm:leading-13 leading-9 max-md:mb-10 max-sm:mb-16">
         We create content that stands out. It lingers. That touches your target
         group and sets your brand in motion. Fast, powerful and energetic.

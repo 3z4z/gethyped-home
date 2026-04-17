@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function ResponsiveWrapper({ children }) {
+export default function ResponsiveWrapper({ children, className }) {
   const [zoomLevel, setZoomLevel] = useState(1);
 
   useEffect(() => {
@@ -25,6 +25,7 @@ export default function ResponsiveWrapper({ children }) {
         zoom: zoomLevel,
         width: "100%",
       }}
+      className={className}
     >
       {children}
     </div>
