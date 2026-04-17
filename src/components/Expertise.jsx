@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
@@ -9,10 +10,12 @@ import clip3 from "../assets/clips/exp3.mp4";
 import clip4 from "../assets/clips/exp4.mp4";
 import TiltCard from "./ui/tilt-card/TiltCard";
 import ResponsiveWrapper from "./ResponsiveWrapper";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ExpertiseSection() {
   const containerRef = useRef(null);
+
   const expertiseData = [
     {
       title: "Social strategy",
@@ -28,7 +31,6 @@ export default function ExpertiseSection() {
       button: "More about content creation",
       video: clip2,
     },
-
     {
       title: "Activation",
       headline: "Visible where and when it counts.",
@@ -36,7 +38,6 @@ export default function ExpertiseSection() {
       button: "More about activation",
       video: clip3,
     },
-
     {
       title: "Data",
       headline: "Insights that make an impact.",
@@ -47,36 +48,43 @@ export default function ExpertiseSection() {
   ];
 
   useLayoutEffect(() => {
-    const context = gsap.context(() => {
+    const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray(".card");
 
       cards.forEach((card, i) => {
-        gsap.set(card, { perspective: 2000 });
-        ScrollTrigger.create({
-          trigger: card,
-          start: "top top",
-          pin: true,
-          pinSpacing: false,
-          end: `${i + 1 < cards.length ? "bottom+=1000px" : "bottom-=1000px"} top`,
-        });
+        const isLast = i === cards.length - 1;
         const nextCard = cards[i + 1];
-        if (i < cards.length - 1) {
+
+        gsap.set(card, { perspective: 2000 });
+
+        // ✅ PIN (exclude last)
+        if (!isLast) {
+          ScrollTrigger.create({
+            trigger: card,
+            start: "top top",
+            pin: true,
+            pinSpacing: false,
+            end: "bottom+=600px top", // slightly reduced for safer flow
+          });
+        }
+
+        // ✅ ANIMATIONS (exclude last)
+        if (!isLast && nextCard) {
           gsap.to(card, {
             scale: 0.8,
-            translateY: -100,
+            y: -100,
             rotateZ: i % 2 !== 0 ? 3 : -3,
             rotateX: i % 2 !== 0 ? 45 : -45,
-            rotateY: i % 2 !== 0 ? 0 : -0,
             scrollTrigger: {
-              trigger: cards[i + 1],
+              trigger: nextCard,
               start: "top bottom",
               end: "top top",
               scrub: true,
             },
           });
+
           gsap.to(card, {
             opacity: 0,
-            perspective: "reserve-3d",
             immediateRender: false,
             scrollTrigger: {
               trigger: nextCard,
@@ -86,10 +94,17 @@ export default function ExpertiseSection() {
             },
           });
         }
+
+        // ✅ HARD RESET LAST CARD
+        if (isLast) {
+          gsap.set(card, {
+            clearProps: "all",
+          });
+        }
       });
     }, containerRef);
 
-    return () => context.revert();
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -100,9 +115,20 @@ export default function ExpertiseSection() {
           className="card h-screen w-full flex items-center justify-center"
         >
           <div
-            className={`text-6xl font-bold w-full h-[calc(100%-5rem)] p-16 rounded-[2.5rem] flex flex-col justify-between ${i === 0 ? "bg-white" : i === 1 ? "bg-secondary" : i === 2 ? "bg-success" : i === 3 ? "bg-info" : "bg-base-content"}`}
+            className={`text-6xl font-bold w-full h-[calc(100%-5rem)] p-16 rounded-[2.5rem] flex flex-col justify-between ${
+              i === 0
+                ? "bg-white"
+                : i === 1
+                  ? "bg-secondary"
+                  : i === 2
+                    ? "bg-success"
+                    : i === 3
+                      ? "bg-info"
+                      : "bg-base-content"
+            }`}
           >
             <ResponsiveWrapper>
+              {/* TOP */}
               <div className="flex justify-between items-center">
                 <div className="flex flex-col gap-4">
                   <span className="font-medium py-2.25 px-3 rounded-lg text-2xl bg-base-100 w-max">
@@ -113,11 +139,15 @@ export default function ExpertiseSection() {
                   </h2>
                 </div>
                 <p
-                  className={`text-9xl font-semibold ${i === 0 ? "opacity-15" : "opacity-35 text-base-100"}`}
+                  className={`text-9xl font-semibold ${
+                    i === 0 ? "opacity-15" : "opacity-35 text-base-100"
+                  }`}
                 >
                   0{i + 1}
                 </p>
               </div>
+
+              {/* BOTTOM */}
               <div className="flex justify-between items-end">
                 <div className="flex flex-col gap-6 max-w-lg">
                   <h3 className="font-semibold text-[2rem] tracking-tight">
@@ -130,9 +160,12 @@ export default function ExpertiseSection() {
                     style={i === 0 ? "primary" : "base"}
                   />
                 </div>
+
                 <TiltCard
                   radius="rounded-[2.5rem]"
-                  className={`${i === 0 ? "bg-primary" : "bg-base-100"} rotate-5 aspect-3/4 max-w-96 h-max`}
+                  className={`${
+                    i === 0 ? "bg-primary" : "bg-base-100"
+                  } rotate-5 aspect-3/4 max-w-96 h-max`}
                 >
                   <video
                     autoPlay

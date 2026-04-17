@@ -1,8 +1,20 @@
+/* eslint-disable no-unused-vars */
 import { container, footerSubLink } from "../../libs/classNames";
 import FooterCurve from "../ui/icons/FooterCurve";
 import logo from "../../assets/logo.svg";
 import RollingButton from "../ui/rolling-button/RollingButton";
-import { FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaFire,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
+import ghSticker from "../../assets/gh-sticker.svg";
+import { motion } from "framer-motion";
+import SkewButton from "../ui/skew-button/SkewButton";
+import MousePopSection from "../ui/MousePop";
 
 const footLinks = ["Experties", "Work", "About", "Contact"];
 const contacts = [
@@ -15,30 +27,54 @@ const socialLinks = [
   { icon: FaInstagram, link: "https://www.instagram.com" },
   { icon: FaYoutube, link: "https://www.youtube.com" },
 ];
+
+const footerBodyLinks = [
+  { text: "Email us directly", icon: FaEnvelope },
+  { text: "Get Results", icon: FaFire },
+];
 export default function FooterSection() {
   return (
     <footer className={`${container} min-h-screen flex flex-col relative`}>
-      <div className="border-t border-t-base-content/25 px-10 h-full flex flex-col grow items-center justify-center">
-        <div className="h-full flex flex-col justify-center items-center px-10">
-          <div className="grow">
-            <h2 className="text-9xl font-semibold">Get Hyped</h2>
+      <MousePopSection>
+        <div className="border-t border-t-base-content/25 px-10 h-full flex flex-col grow items-center justify-center">
+          <div className="h-full flex flex-col justify-center items-center px-10">
+            <div className="grow flex flex-col gap-12">
+              <h2 className="text-9xl font-semibold">Let's Get Hyped!</h2>
+              <div className="flex items-center justify-center gap-6">
+                {footerBodyLinks.map((l, i) => (
+                  <SkewButton
+                    key={i}
+                    icon={<l.icon className="p-1.5" />}
+                    title={l.text}
+                    style={i === 0 ? "baseOutline" : "primary"}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </MousePopSection>
       {/* footer bottom */}
       <div className="absolute z-10 bottom-0 left-1/2 -translate-x-1/2 bg-base-200 text-justify w-[calc(100%-2.5rem)]">
-        <div className="absolute w-full bottom-0 left-0 -z-1 text-base-200">
+        <div className="absolute w-full bottom-0 left-0 z-1 text-base-200">
           <FooterCurve />
         </div>
+        <motion.figure
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
+          className="absolute bottom-72 right-12 size-36 z-3"
+        >
+          <img src={ghSticker} alt="" className="size-full" />
+        </motion.figure>
         <div className="flex justify-between w-full relative">
-          <figure className="h-36 w-auto absolute bottom-2 left-2">
+          <figure className="h-36 w-auto absolute bottom-2 left-2 z-2">
             <img src={logo} alt="brand logo" className="h-full" />
           </figure>
-          <div className="absolute flex items-end justify-end right-2 bottom-2 gap-24 px-2 pb-8">
+          <div className="absolute flex items-end justify-end right-2 bottom-2 gap-24 px-2 pb-8 z-2">
             <div className="flex flex-col gap-8">
               <div className="flex gap-3 justify-center items-center">
                 {footLinks.map((l, i) => (
-                  <RollingButton key={i} text={l} />
+                  <RollingButton key={i} text={l} bgColor={"bg-white"} />
                 ))}
               </div>
               <div className="flex gap-4 items-center">
@@ -48,9 +84,9 @@ export default function FooterSection() {
                     <a
                       href={l.link}
                       key={i}
-                      className="size-12 rounded-full flex items-center justify-center text-xl group hover:text-primary bg-white"
+                      className="size-12 rounded-full flex items-center justify-center text-xl group hover:scale-125 hover:text-primary transition bg-white hover:shadow-md"
                     >
-                      <l.icon className="transition group-hover:scale-110" />
+                      <l.icon className="transition" />
                     </a>
                   ))}
                 </div>
