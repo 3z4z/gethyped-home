@@ -7,10 +7,16 @@ import clip2 from "../assets/clips/work2.mp4";
 import clip3 from "../assets/clips/work3.mp4";
 import CurveShape from "./ui/icons/CurveShape";
 import { FiArrowUpRight } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { motion, transform } from "framer-motion";
 import Elevation from "./ui/Elevation";
+import {
+  headingLargeTextResponse,
+  headingSubTextResponse,
+} from "../libs/classNames";
+import { useBreakpoint } from "../hooks/useBreakpoints";
 
 export default function WorksSection() {
+  const breakpoint = useBreakpoint();
   const works = [
     {
       video: clip1,
@@ -29,13 +35,17 @@ export default function WorksSection() {
     },
   ];
   return (
-    <section className="lg:px-10 md:px-8 sm:px-6 px-4 pt-48 gap-4 pb-20">
+    <section className="lg:px-10 md:px-8 sm:px-6 px-4 lg:pt-48 md:pt-36 sm:pt-26 pt-20 gap-4 pb-20">
       <div className="grid grid-cols-12 grid-rows-2">
-        <h2 className="row-start-1 row-end-2 col-start-2 col-end-6 tracking-tighter font-semibold text-9xl">
+        <h2
+          className={`row-start-1 row-end-2 lg:col-start-2 col-start-1 lg:col-end-6 col-end-12 ${headingLargeTextResponse}`}
+        >
           Content that scores.
         </h2>
-        <div className="row-start-2 row-end-3 col-start-2 col-end-6">
-          <p className="max-w-[calc(100%-4rem)] font-semibold text-[2rem] leading-11 tracking-tight pb-6">
+        <div className="row-start-2 row-end-3 lg:col-start-2 col-start-1 lg:col-end-6 col-span-12">
+          <p
+            className={`max-w-[calc(100%-4rem)] pb-6 ${headingSubTextResponse}`}
+          >
             We tell your story. In a way that truly resonates with your target
             audience. With creative content that works and makes a difference.
           </p>
@@ -46,14 +56,16 @@ export default function WorksSection() {
           />
         </div>
       </div>
-      <div className="pt-12 flex gap-20 pb-20 px-32 w-full">
+      <div className="pt-12 flex max-sm:flex-col lg:gap-20 md:gap-15 sm:gap-10 gap-2 pb-20 lg:px-32 md:px-10 sm:px-4 w-full">
         {works.map((w, i) => (
-          <Elevation key={i} lift={i * -100}>
+          <Elevation key={i} lift={breakpoint === "lg" ? i * -100 : i}>
             <TiltCard
               key={i}
-              style={{ top: works.length * 40 - i * 40 }}
-              className={`relative aspect-3/4 ${i === 0 ? "bg-primary/25" : i === 1 ? "bg-info/25" : "bg-success/25"}`}
-              inset="inset-4"
+              style={{
+                top: breakpoint === "lg" ? works.length * 40 - i * 40 : 0,
+              }}
+              className={`relative aspect-3/4 ${i === 0 ? "sm:bg-primary/25 bg-primary/75" : i === 1 ? "sm:bg-info/25 bg-info/25" : "sm:bg-success/25 bg-success/25"}`}
+              inset="lg:inset-4 sm:inset-3 inset-1.5"
               radius="rounded-[2.75rem]"
             >
               <video
@@ -106,7 +118,7 @@ export default function WorksSection() {
                 <div
                   className={`relative p-4 rounded-t-none! rounded-b-2xl! flex flex-col gap-4 ${i === 0 ? "bg-primary" : i === 1 ? "bg-info" : "bg-success"}`}
                 >
-                  <h3 className="text-[2rem] font-semibold tracking-tight leading-9 text-base-100">
+                  <h3 className={`text-base-100 ${headingSubTextResponse}`}>
                     {w.title}
                   </h3>
                   <span className="badge badge-xl rounded-md font-medium">

@@ -4,6 +4,7 @@ import SkewButton from "./ui/skew-button/SkewButton";
 import RollingButton from "./ui/rolling-button/RollingButton";
 import TiltCard from "./ui/tilt-card/TiltCard";
 import aboutClip from "../assets/clips/about-clip.mp4";
+import { headingSubTextResponse } from "../libs/classNames";
 
 export default function AboutSection() {
   return (
@@ -33,7 +34,7 @@ export default function AboutSection() {
         </TiltCard>
       </div>
       <div className="row-start-2 row-end-5 lg:col-start-5 col-start-6 lg:col-end-10 sm:col-end-12 col-end-12 self-end flex flex-col lg:gap-6 gap-8">
-        <p className="text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-semibold tracking-tight lg:leading-10 md:leading-8 sm:leading-7 leading-6 max-w-2xl">
+        <p className={`max-w-2xl ${headingSubTextResponse}`}>
           We don't stop at pretty pictures and cool visuals. We make it
           measurable. That way, you know exactly what works and what doesn't.
           Never again content without a strategy. Never again content without

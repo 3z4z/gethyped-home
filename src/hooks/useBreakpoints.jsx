@@ -5,9 +5,15 @@ export function useBreakpoint() {
 
   useEffect(() => {
     function handleResize() {
-      if (window.matchMedia("(max-width: 767px)").matches) {
+      if (
+        window.matchMedia("(max-width: 767px)").matches ||
+        (window.innerWidth <= 576 && window.innerWidth > 768)
+      ) {
         setSize("sm");
-      } else if (window.matchMedia("(max-width: 991px)").matches) {
+      } else if (
+        window.matchMedia("(max-width: 991px)").matches ||
+        (window.innerWidth <= 768 && window.innerWidth > 991)
+      ) {
         setSize("md");
       } else {
         setSize("lg");

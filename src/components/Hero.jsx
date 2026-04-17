@@ -5,6 +5,7 @@ import vid1 from "../assets/clips/loop-salontopper.mp4";
 import vid2 from "../assets/clips/petrolhead-loop.mp4";
 import { motion } from "framer-motion";
 import { useBreakpoint } from "../hooks/useBreakpoints";
+import { headingLargeTextResponse } from "../libs/classNames";
 
 export default function HeroSection() {
   const breakpoint = useBreakpoint();
@@ -56,7 +57,9 @@ export default function HeroSection() {
   return (
     <section className="pt-48 pb-20 overflow-hidden lg:px-10 md:px-8 sm:px-6 px-4">
       <header className="grid gap-8">
-        <h1 className="text-[clamp(3.5rem,4vw,3rem)] text-6xl sm:text-[5rem] md:text-[5.5rem] lg:text-9xl font-semibold lg:tracking-tight -tracking-[0.2rem] lg:max-w-7/10 md:max-w-9/10 leading-15 sm:leading-17 md:leading-20 lg:leading-30">
+        <h1
+          className={`lg:max-w-7/10 md:max-w-9/10 max-sm:max-w-7/10 ${headingLargeTextResponse}`}
+        >
           Get Hyped. Get Noticed. Get Results.
         </h1>
         <p className="text-[1.75rem] lg:text-[2rem] lg:leading-10 leading-9 font-semibold tracking-tight">

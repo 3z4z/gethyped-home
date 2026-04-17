@@ -35,7 +35,7 @@ export default function SkewButton({ title, icon, style }) {
             scale: 1,
           },
         }}
-        className={`${iconStyles[style] || ""} lg:p-1.5 sm:p-2 p-1.5 lg:text-3xl sm:text-xl text-2xl`}
+        className={`${iconStyles[style] || ""} lg:p-1.5 sm:p-2 p-1.5 lg:text-3xl sm:text-xl text-2xl relative z-10`}
       >
         {icon}
       </motion.span>

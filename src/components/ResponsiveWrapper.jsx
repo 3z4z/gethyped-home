@@ -9,6 +9,8 @@ export default function ResponsiveWrapper({ children, className }) {
       const width = window.innerWidth;
       if (width < 1920 && width >= 992) {
         setZoomLevel(width / 1920);
+      } else if (width < 480) {
+        setZoomLevel(width / 480);
       } else {
         setZoomLevel(1);
       }
