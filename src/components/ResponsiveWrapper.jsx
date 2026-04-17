@@ -7,7 +7,7 @@ export default function ResponsiveWrapper({ children }) {
   useEffect(() => {
     const handleZoom = () => {
       const width = window.innerWidth;
-      if (width < 1920 && width >= 991) {
+      if (width < 1920 && width >= 992) {
         setZoomLevel(width / 1920);
       } else {
         setZoomLevel(1);

@@ -18,7 +18,7 @@ export default function SkewButton({ title, icon, style }) {
         hovered: { skewY: -4, scale: 1.05, borderRadius: "0.625rem" },
         tapped: { scale: 0.95, borderRadius: "0.875rem" },
       }}
-      className={`${buttonStyles[style] || ""} flex items-center gap-2 font-semibold text-xl py-1.5 ps-2.5 pe-1.5 cursor-pointer border max-w-max`}
+      className={`${buttonStyles[style] || ""} flex items-center gap-2 font-semibold lg:text-xl md:text-base sm:text-xs text-lg py-1.5 ps-2.5 pe-1.5 cursor-pointer border max-w-max`}
     >
       {title}
       <motion.span
@@ -35,7 +35,7 @@ export default function SkewButton({ title, icon, style }) {
             scale: 1,
           },
         }}
-        className={`${iconStyles[style] || ""} p-1.5 text-3xl`}
+        className={`${iconStyles[style] || ""} lg:p-1.5 sm:p-2 p-1.5 lg:text-3xl sm:text-xl text-2xl`}
       >
         {icon}
       </motion.span>

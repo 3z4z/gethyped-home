@@ -33,7 +33,7 @@ const brands = [
 export default function BrandsSection() {
   return (
     <section className="pt-24 overflow-hidden">
-      <div className={`${container} px-10 pb-20`}>
+      <div className={`${container} lg:px-10 md:px-8 sm:px-6 px-4 pb-20`}>
         <h2 className="max-w-xl text-[5rem] font-semibold tracking-tight leading-20">
           These brands got hyped.
         </h2>

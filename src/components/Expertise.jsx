@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
@@ -57,18 +56,16 @@ export default function ExpertiseSection() {
 
         gsap.set(card, { perspective: 2000 });
 
-        // ✅ PIN (exclude last)
         if (!isLast) {
           ScrollTrigger.create({
             trigger: card,
             start: "top top",
             pin: true,
             pinSpacing: false,
-            end: "bottom+=600px top", // slightly reduced for safer flow
+            end: "bottom+=600px top",
           });
         }
 
-        // ✅ ANIMATIONS (exclude last)
         if (!isLast && nextCard) {
           gsap.to(card, {
             scale: 0.8,
@@ -94,8 +91,6 @@ export default function ExpertiseSection() {
             },
           });
         }
-
-        // ✅ HARD RESET LAST CARD
         if (isLast) {
           gsap.set(card, {
             clearProps: "all",
@@ -108,14 +103,18 @@ export default function ExpertiseSection() {
   }, []);
 
   return (
-    <div ref={containerRef} className="px-10">
+    <div
+      id="expertise"
+      ref={containerRef}
+      className="lg:px-10 md:px-8 sm:px-6 px-4"
+    >
       {expertiseData.map((exp, i) => (
         <section
           key={i}
           className="card h-screen w-full flex items-center justify-center"
         >
           <div
-            className={`text-6xl font-bold w-full h-[calc(100%-5rem)] p-16 rounded-[2.5rem] flex flex-col justify-between ${
+            className={`text-6xl font-bold w-full h-[calc(100%-5rem)] lg:p-16 md:p-12 sm:p-10 p-8 rounded-[2.5rem] flex flex-col justify-between ${
               i === 0
                 ? "bg-white"
                 : i === 1
@@ -128,18 +127,17 @@ export default function ExpertiseSection() {
             }`}
           >
             <ResponsiveWrapper>
-              {/* TOP */}
               <div className="flex justify-between items-center">
                 <div className="flex flex-col gap-4">
-                  <span className="font-medium py-2.25 px-3 rounded-lg text-2xl bg-base-100 w-max">
+                  <span className="font-medium py-2.25 px-3 rounded-lg md:text-2xl sm:text-xl text-lg bg-base-100 w-max">
                     Expertise
                   </span>
-                  <h2 className="text-9xl font-semibold tracking-tight">
+                  <h2 className="text-[3.5rem] sm:text-6xl md:text-7xl lg:text-9xl font-semibold tracking-tight">
                     {exp.title}
                   </h2>
                 </div>
                 <p
-                  className={`text-9xl font-semibold ${
+                  className={`max-lg:absolute max-lg:top-16 max-lg:right-8 text-[3.5rem] sm:text-6xl md:text-7xl lg:text-9xl font-semibold ${
                     i === 0 ? "opacity-15" : "opacity-35 text-base-100"
                   }`}
                 >
@@ -147,7 +145,6 @@ export default function ExpertiseSection() {
                 </p>
               </div>
 
-              {/* BOTTOM */}
               <div className="flex justify-between items-end">
                 <div className="flex flex-col gap-6 max-w-lg">
                   <h3 className="font-semibold text-[2rem] tracking-tight">

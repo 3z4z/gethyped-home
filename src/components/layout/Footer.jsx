@@ -36,8 +36,8 @@ export default function FooterSection() {
   return (
     <footer className={`${container} min-h-screen flex flex-col relative`}>
       <MousePopSection>
-        <div className="border-t border-t-base-content/25 px-10 h-full flex flex-col grow items-center justify-center">
-          <div className="h-full flex flex-col justify-center items-center px-10">
+        <div className="border-t border-t-base-content/25 lg:px-10 md:px-8 sm:px-6 px-4 h-full flex flex-col grow items-center justify-center">
+          <div className="h-full flex flex-col justify-center items-center lg:px-10 md:px-8 sm:px-6 px-4">
             <div className="grow flex flex-col gap-12">
               <h2 className="text-9xl font-semibold">Let's Get Hyped!</h2>
               <div className="flex items-center justify-center gap-6">

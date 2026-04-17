@@ -2,9 +2,10 @@
 import { motion } from "framer-motion";
 import { springTransition } from "./RollingButton.style";
 
-export default function RollingButton({ text, icon, bgColor }) {
+export default function RollingButton({ text, icon, bgColor, action = null }) {
   return (
     <motion.button
+      onClick={action}
       initial="initial"
       whileHover={"hovered"}
       variants={{

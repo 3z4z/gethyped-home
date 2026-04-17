@@ -66,7 +66,7 @@ export default function HeaderSection() {
   return (
     <header
       ref={header}
-      className={`${container} fixed top-0 left-1/2 -translate-x-1/2 flex justify-between items-center py-5.5 z-20 px-10`}
+      className={`${container} fixed top-0 left-1/2 -translate-x-1/2 flex justify-between items-center py-5.5 z-20 lg:px-10 md:px-8 sm:px-6 px-4`}
     >
       <a href="#" className="w-1/4 left">
         <figure>

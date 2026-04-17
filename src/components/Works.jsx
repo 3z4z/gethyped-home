@@ -29,7 +29,7 @@ export default function WorksSection() {
     },
   ];
   return (
-    <section className="px-10 pt-48 gap-4 pb-20">
+    <section className="lg:px-10 md:px-8 sm:px-6 px-4 pt-48 gap-4 pb-20">
       <div className="grid grid-cols-12 grid-rows-2">
         <h2 className="row-start-1 row-end-2 col-start-2 col-end-6 tracking-tighter font-semibold text-9xl">
           Content that scores.

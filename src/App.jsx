@@ -19,14 +19,14 @@ export default function App() {
           <AboutSection />
         </ResponsiveWrapper>
         <ExpertiseSection />
-        <ResponsiveWrapper>
+        {/* <ResponsiveWrapper>
           <WorksSection />
-        </ResponsiveWrapper>
+        </ResponsiveWrapper> */}
       </div>
-      <BrandsSection />
-      <ResponsiveWrapper>
+      {/* <BrandsSection /> */}
+      {/* <ResponsiveWrapper>
         <FooterSection />
-      </ResponsiveWrapper>
+      </ResponsiveWrapper> */}
     </>
   );
 }

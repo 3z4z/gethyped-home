@@ -46,6 +46,12 @@
   --noise: 0;
 }
 
+@theme {
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 62rem;
+}
+
 body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
