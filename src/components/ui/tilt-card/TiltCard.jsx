@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useBreakpoint } from "../../../hooks/useBreakpoints";
 
 const TiltCard = ({
   children,
@@ -8,6 +9,7 @@ const TiltCard = ({
   radius = "rounded-xl",
   inset = "inset-3",
 }) => {
+  const breakpoint = useBreakpoint();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -52,9 +54,9 @@ const TiltCard = ({
       onMouseLeave={handleMouseLeave}
       style={{
         ...style,
-        rotateY,
-        rotateX,
-        transformStyle: "preserve-3d",
+        rotateY: breakpoint === "sm" || rotateY,
+        rotateX: breakpoint === "sm" || rotateX,
+        transformStyle: breakpoint === "sm" || "preserve-3d",
       }}
       className={`relative size-full ${radius}${className ? ` ${className}` : ""}`}
     >

@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Elevation({ children, lift }) {
+export default function Elevation({ children, lift, className }) {
   const wrapperRef = useRef(null);
 
   useLayoutEffect(() => {
@@ -25,7 +25,10 @@ export default function Elevation({ children, lift }) {
   }, [lift]);
 
   return (
-    <div ref={wrapperRef} className="relative size-full">
+    <div
+      ref={wrapperRef}
+      className={`relative size-full${className ? ` ${className}` : ""}`}
+    >
       {children}
     </div>
   );

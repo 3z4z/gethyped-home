@@ -23,10 +23,8 @@ export default function App() {
           <WorksSection />
         </ResponsiveWrapper>
       </div>
-      {/* <BrandsSection /> */}
-      {/* <ResponsiveWrapper>
-        <FooterSection />
-      </ResponsiveWrapper> */}
+      <BrandsSection />
+      <FooterSection />
     </>
   );
 }

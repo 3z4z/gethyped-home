@@ -3,7 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
 
-import { container } from "../libs/classNames";
+import { container, headingMediumTextResponse } from "../libs/classNames";
 
 import brand1 from "../assets/brands/byte-records.svg";
 import brand2 from "../assets/brands/cisco.svg";
@@ -32,9 +32,11 @@ const brands = [
 
 export default function BrandsSection() {
   return (
-    <section className="pt-24 overflow-hidden">
-      <div className={`${container} lg:px-10 md:px-8 sm:px-6 px-4 pb-20`}>
-        <h2 className="max-w-xl text-[5rem] font-semibold tracking-tight leading-20">
+    <section className="lg:pt-24 md:pt-18 sm:pt-10 pt-4 overflow-hidden">
+      <div
+        className={`${container} lg:px-10 md:px-8 sm:px-6 px-4 lg:pb-20 sm:pb-15 pb-10`}
+      >
+        <h2 className={`max-w-xl ${headingMediumTextResponse}`}>
           These brands got hyped.
         </h2>
       </div>
@@ -53,8 +55,11 @@ export default function BrandsSection() {
           className="marquee-swiper w-full flex-4"
         >
           {[...brands, ...brands].map((b, i) => (
-            <SwiperSlide className="w-18/100!" key={i}>
-              <figure className="aspect-square p-14 border border-base-content/25 rounded-lg">
+            <SwiperSlide
+              className="lg:w-18/100! md:w-22/100! sm:w-26/100! w-30/100!"
+              key={i}
+            >
+              <figure className="aspect-square lg:p-14 md:p-8 sm:p-5 p-3 border border-base-content/25 rounded-lg">
                 <img src={b} alt="" />
               </figure>
             </SwiperSlide>

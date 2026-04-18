@@ -7,3 +7,6 @@ export const headingLargeTextResponse =
 
 export const headingSubTextResponse =
   "text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-semibold tracking-tight lg:leading-10 md:leading-8 sm:leading-7 leading-6";
+
+export const headingMediumTextResponse =
+  "lg:text-[5rem] md:text-[3.5rem] sm:text-[3rem] text-4xl -tracking-[0.04rem] font-semibold lg:leading-20 md:leading-14 sm:leading-13 leading-9";

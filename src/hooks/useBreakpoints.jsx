@@ -5,15 +5,11 @@ export function useBreakpoint() {
 
   useEffect(() => {
     function handleResize() {
-      if (
-        window.matchMedia("(max-width: 767px)").matches ||
-        (window.innerWidth <= 576 && window.innerWidth > 768)
-      ) {
+      const width = window.innerWidth;
+
+      if (width < 640) {
         setSize("sm");
-      } else if (
-        window.matchMedia("(max-width: 991px)").matches ||
-        (window.innerWidth <= 768 && window.innerWidth > 991)
-      ) {
+      } else if (width >= 640 && width < 992) {
         setSize("md");
       } else {
         setSize("lg");
