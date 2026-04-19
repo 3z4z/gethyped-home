@@ -2,6 +2,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useBreakpoint } from "../hooks/useBreakpoints";
 import NavbarComponent from "./layout/Navbar";
+import SkewButton from "./ui/skew-button/SkewButton";
+import { FaFire } from "react-icons/fa";
 export default function ResponsiveHeader({ isOpen }) {
   const breakpoint = useBreakpoint();
   return (
@@ -11,7 +13,7 @@ export default function ResponsiveHeader({ isOpen }) {
           initial={{ y: "-100%", rotate: 10 }}
           animate={{ y: 0, rotate: 0 }}
           exit={{ y: "-150%", rotate: -10 }}
-          className="z-1 h-screen w-screen absolute p-2 top-0 left-0 overflow-hidden bg-white/10 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[8.8px] border border-white/30"
+          className="z-1 h-screen w-full absolute p-2 top-0 left-0 overflow-hidden bg-white/10 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[8.8px] border border-white/30"
         >
           <div className="absolute bg-secondary size-[calc(100%-1rem)] top-2 left-2 rounded-2xl"></div>
           <div className="relative z-2 flex justify-between items-center py-20 flex-col h-full">
@@ -20,7 +22,11 @@ export default function ResponsiveHeader({ isOpen }) {
               <NavbarComponent />
             </div>
             <div className="flex-1 flex items-end">
-              <button>asdfasfa</button>
+              <SkewButton
+                title={"Get Results"}
+                style={"primaryAlt"}
+                icon={<FaFire />}
+              />
             </div>
           </div>
         </motion.div>

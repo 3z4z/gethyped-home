@@ -13,8 +13,8 @@ export default function App() {
   return (
     <>
       <div className={`${container} relative`}>
+        <HeaderSection />
         <ResponsiveWrapper>
-          <HeaderSection />
           <HeroSection />
           <AboutSection />
         </ResponsiveWrapper>

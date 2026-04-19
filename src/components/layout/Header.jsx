@@ -11,6 +11,7 @@ import { useBreakpoint } from "../../hooks/useBreakpoints";
 import Hamburger from "../ui/Hamburger";
 import ResponsiveHeader from "../ResponsiveHeader";
 import useToggle from "../../hooks/useToggle";
+import ResponsiveWrapper from "../ResponsiveWrapper";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -108,25 +109,33 @@ export default function HeaderSection() {
       ref={header}
       className={`${container} fixed top-0 left-1/2 -translate-x-1/2 flex justify-between items-center py-5.5 z-20 lg:px-10 md:px-8 sm:px-6 px-4`}
     >
-      <a href="#" className="w-1/4 left relative z-2">
-        <figure>
-          <img src={logo} alt="Logo" className="max-h-19" />
-        </figure>
-      </a>
-      {breakpoint === "lg" && <NavbarComponent />}
-      <div className="w-1/4 relative z-2 flex justify-end right">
-        {breakpoint === "lg" ? (
-          <SkewButton
-            title={"Get Results"}
-            icon={<IoFlame />}
-            style={"secondary"}
-          />
-        ) : (
-          <>
-            <Hamburger isOpen={isOpen} toggle={toggle} />
-          </>
-        )}
-      </div>
+      <ResponsiveWrapper className={"w-1/4"}>
+        <a href="#" className="w-full left relative z-2">
+          <figure>
+            <img src={logo} alt="Logo" className="max-h-19" />
+          </figure>
+        </a>
+      </ResponsiveWrapper>
+      {breakpoint === "lg" && (
+        <ResponsiveWrapper className={"lg:w-1/2 "}>
+          <NavbarComponent />
+        </ResponsiveWrapper>
+      )}
+      <ResponsiveWrapper className={"w-1/4"}>
+        <div className="w-full relative z-2 flex justify-end right">
+          {breakpoint === "lg" ? (
+            <SkewButton
+              title={"Get Results"}
+              icon={<IoFlame />}
+              style={"secondary"}
+            />
+          ) : (
+            <>
+              <Hamburger isOpen={isOpen} toggle={toggle} />
+            </>
+          )}
+        </div>
+      </ResponsiveWrapper>
       <ResponsiveHeader isOpen={isOpen} />
     </header>
   );

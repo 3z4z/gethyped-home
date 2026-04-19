@@ -43,7 +43,7 @@ export default function FooterSection() {
   const breakpoint = useBreakpoint();
   return (
     <footer
-      className={`${container} sm:min-h-screen min-h-[calc(75dvh)] flex flex-col relative lg:px-10 md:px-8 sm:px-6 px-4`}
+      className={`${container} md:min-h-screen xs:min-h-[calc(85dvh)] min-h-[calc(75dvh)] flex flex-col relative lg:px-10 md:px-8 sm:px-6 px-4`}
     >
       <div className="border-t border-t-base-content/25"></div>
       <MousePopSection>
