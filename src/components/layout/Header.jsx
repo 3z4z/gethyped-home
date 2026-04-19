@@ -24,32 +24,18 @@ export default function HeaderSection() {
     const body = document.body;
 
     if (isOpen) {
-      // 1. Lock scroll for Desktop
       html.style.overflow = "hidden";
       body.style.overflow = "hidden";
-
-      // 2. Prevent "bounce" scroll on iOS
-      body.style.position = "fixed";
-      body.style.width = "100%";
-
-      // 3. Pause GSAP ScrollTriggers so they don't fight the lock
       ScrollTrigger.getAll().forEach((t) => t.disable());
     } else {
-      // Restore everything
-      html.style.overflow = "";
-      body.style.overflow = "";
-      body.style.position = "";
-      body.style.width = "";
-
-      // Re-enable GSAP
+      html.style.overflow = "auto";
+      body.style.overflow = "auto";
       ScrollTrigger.getAll().forEach((t) => t.enable());
     }
 
     return () => {
-      html.style.overflow = "";
-      body.style.overflow = "";
-      body.style.position = "";
-      body.style.width = "";
+      html.style.overflow = "auto";
+      body.style.overflow = "auto";
       ScrollTrigger.getAll().forEach((t) => t.enable());
     };
   }, [isOpen]);
@@ -74,7 +60,7 @@ export default function HeaderSection() {
             if (window.scrollY > 100) {
               header.current.classList.add(
                 "bg-white/5",
-                "rounded-2xl",
+                "rounded-b-2xl",
                 "shadow-[0_4px_30px_rgba(0,0,0,0.1)]",
                 "backdrop-blur-[5.2px]",
                 "border",
@@ -83,7 +69,7 @@ export default function HeaderSection() {
             } else {
               header.current.classList.remove(
                 "bg-white/5",
-                "rounded-2xl",
+                "rounded-b-2xl",
                 "shadow-[0_4px_30px_rgba(0,0,0,0.1)]",
                 "backdrop-blur-[5.2px]",
                 "border",
