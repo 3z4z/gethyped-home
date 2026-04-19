@@ -127,9 +127,7 @@ export default function ExpertiseSection() {
             }`}
           >
             <ResponsiveWrapper
-              className={
-                "flex h-full flex-col sm:justify-between justify-start"
-              }
+              className={"flex h-full flex-col justify-between"}
             >
               <div className="flex justify-between items-center max-sm:pb-5">
                 <div className="flex flex-col gap-4">
@@ -149,7 +147,7 @@ export default function ExpertiseSection() {
                 </p>
               </div>
 
-              <div className="flex justify-between sm:items-end items-start max-sm:flex-col-reverse max-sm:gap-5 max-sm:flex-1">
+              <div className="flex justify-between sm:items-end items-start max-sm:flex-col-reverse max-sm:gap-5 max-sm:h-[65%]">
                 <div className="flex flex-col lg:gap-6 gap-2.5 max-w-lg">
                   <h3 className="font-semibold lg:text-[2rem] sm:text-3xl xs:text-2xl text-xl tracking-tight">
                     {exp.headline}
