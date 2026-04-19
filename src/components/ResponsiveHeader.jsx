@@ -13,7 +13,7 @@ export default function ResponsiveHeader({ isOpen }) {
           initial={{ y: "-100%", rotate: 10 }}
           animate={{ y: 0, rotate: 0 }}
           exit={{ y: "-150%", rotate: -10 }}
-          className="z-1 h-screen w-full fixed top-0 left-0 overflow-hidden"
+          className="z-1 h-dvh w-full fixed top-0 left-0"
         >
           <div className="absolute size-full top-0 left-0 p-2 bg-base-100 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[5.2px]">
             <div className="bg-secondary size-full rounded-2xl"></div>

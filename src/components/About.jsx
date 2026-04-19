@@ -21,7 +21,7 @@ export default function AboutSection() {
       <div className="row-start-2 row-end-3 col-start-1 lg:col-end-3 col-end-6 max-lg:pe-6 max-sm:pb-12">
         <TiltCard
           className={
-            "aspect-3/4 bg-primary/35 max-sm:rotate-6 max-sm:w-[calc(100%-4rem)] ms-10"
+            "aspect-3/4 bg-primary/35 max-sm:rotate-6 max-sm:w-[calc(100%-4rem)] lg:ms-10"
           }
         >
           <figure className="max-sm:hidden size-full">
