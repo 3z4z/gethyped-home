@@ -6,12 +6,52 @@ import SkewButton from "../ui/skew-button/SkewButton";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useBreakpoint } from "../../hooks/useBreakpoints";
+import Hamburger from "../ui/Hamburger";
+import ResponsiveHeader from "../ResponsiveHeader";
+import useToggle from "../../hooks/useToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeaderSection() {
   const header = useRef();
+  const breakpoint = useBreakpoint();
+  const { isOpen, toggle } = useToggle();
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+
+    if (isOpen) {
+      // 1. Lock scroll for Desktop
+      html.style.overflow = "hidden";
+      body.style.overflow = "hidden";
+
+      // 2. Prevent "bounce" scroll on iOS
+      body.style.position = "fixed";
+      body.style.width = "100%";
+
+      // 3. Pause GSAP ScrollTriggers so they don't fight the lock
+      ScrollTrigger.getAll().forEach((t) => t.disable());
+    } else {
+      // Restore everything
+      html.style.overflow = "";
+      body.style.overflow = "";
+      body.style.position = "";
+      body.style.width = "";
+
+      // Re-enable GSAP
+      ScrollTrigger.getAll().forEach((t) => t.enable());
+    }
+
+    return () => {
+      html.style.overflow = "";
+      body.style.overflow = "";
+      body.style.position = "";
+      body.style.width = "";
+      ScrollTrigger.getAll().forEach((t) => t.enable());
+    };
+  }, [isOpen]);
   useGSAP(
     () => {
       const showAnim = gsap
@@ -68,19 +108,26 @@ export default function HeaderSection() {
       ref={header}
       className={`${container} fixed top-0 left-1/2 -translate-x-1/2 flex justify-between items-center py-5.5 z-20 lg:px-10 md:px-8 sm:px-6 px-4`}
     >
-      <a href="#" className="w-1/4 left">
+      <a href="#" className="w-1/4 left relative z-2">
         <figure>
           <img src={logo} alt="Logo" className="max-h-19" />
         </figure>
       </a>
-      <NavbarComponent />
-      <div className="w-1/4 flex justify-end right">
-        <SkewButton
-          title={"Get Results"}
-          icon={<IoFlame />}
-          style={"secondary"}
-        />
+      {breakpoint === "lg" && <NavbarComponent />}
+      <div className="w-1/4 relative z-2 flex justify-end right">
+        {breakpoint === "lg" ? (
+          <SkewButton
+            title={"Get Results"}
+            icon={<IoFlame />}
+            style={"secondary"}
+          />
+        ) : (
+          <>
+            <Hamburger isOpen={isOpen} toggle={toggle} />
+          </>
+        )}
       </div>
+      <ResponsiveHeader isOpen={isOpen} />
     </header>
   );
 }

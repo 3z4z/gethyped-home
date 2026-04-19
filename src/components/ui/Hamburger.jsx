@@ -1,23 +1,19 @@
-import useToggle from "../../hooks/useToggle";
-
-export default function Hamburger() {
-  const { isOpen, toggle } = useToggle();
+export default function Hamburger({ isOpen, toggle }) {
   return (
     <button
       onClick={toggle}
-      className="relative w-8 h-8 flex flex-col justify-between items-center"
+      className={`cursor-pointer relative size-12 rounded-lg flex items-center justify-center transition-all duration-300 ease-in-out ${isOpen ? "bg-base-100" : "bg-secondary"}`}
     >
+      {/* Top bar */}
       <span
-        className={`block h-0.5 w-full bg-black transform transition duration-300 ease-in-out
-        ${isOpen ? "rotate-45 translate-y-3" : ""}`}
+        className={`absolute h-0.5 w-6 transition-all duration-300 ease-in-out
+        ${isOpen ? "rotate-45 bg-base-content" : "-translate-y-2 bg-base-100"}`}
       />
+
+      {/* Bottom bar */}
       <span
-        className={`block h-0.5 w-full bg-black transition duration-300 ease-in-out
-        ${isOpen ? "opacity-0" : ""}`}
-      />
-      <span
-        className={`block h-0.5 w-full bg-black transform transition duration-300 ease-in-out
-        ${isOpen ? "-rotate-45 -translate-y-3" : ""}`}
+        className={`absolute h-0.5 w-6 bg-base-100 transition-all duration-300 ease-in-out
+        ${isOpen ? "-rotate-45 bg-base-content" : "translate-y-2 bg-base-100"}`}
       />
     </button>
   );

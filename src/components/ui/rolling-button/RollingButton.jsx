@@ -12,7 +12,7 @@ export default function RollingButton({ text, icon, bgColor, action = null }) {
         initial: { skewY: 0, scale: 1 },
         hovered: { skewY: icon ? -3 : 0, scale: icon ? 1.05 : 1 },
       }}
-      className={`${bgColor ? `${bgColor} ` : ""}relative tracking-tight font-semibold ${icon ? "p-3 text-primary border-2 border-base-content/50 text-3xl" : "px-3.5 py-2 text-lg"} rounded-xl overflow-hidden cursor-pointer`}
+      className={`${bgColor ? `${bgColor} ` : ""}relative tracking-tight font-semibold ${icon ? "p-3 text-primary border-2 border-base-content/50 text-3xl" : "px-3.5 py-2 text-lg"} rounded-xl overflow-hidden cursor-pointer max-lg:w-fit max-lg:inline-flex`}
     >
       <motion.div
         className="block"

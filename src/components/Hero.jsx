@@ -67,7 +67,7 @@ export default function HeroSection() {
         </p>
       </header>
       <main>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-8 py-16 lg:px-16 lg:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mt-8 py-16 lg:px-16 lg:gap-4">
           {visibleCards.map((c, i) => (
             <motion.div
               key={i}
