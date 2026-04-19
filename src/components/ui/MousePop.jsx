@@ -63,7 +63,7 @@ const MousePopSection = ({ children }) => {
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex flex-col overflow-hidden"
+      className="relative sm:min-h-screen flex flex-col overflow-hidden"
     >
       {children}
 

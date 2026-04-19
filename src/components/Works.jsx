@@ -35,14 +35,14 @@ export default function WorksSection() {
     },
   ];
   return (
-    <section className="lg:px-10 md:px-8 sm:px-6 px-4 lg:pt-48 md:pt-36 sm:pt-26 pt-20 gap-4 lg:pb-20 sm:pb-15 pb-8">
-      <div className="grid grid-cols-12 grid-rows-2">
+    <section className="lg:px-10 md:px-8 sm:px-6 px-4 lg:pt-48 md:pt-36 sm:pt-26 pt-20 gap-4 lg:pb-20 sm:pb-15">
+      <div className="lg:grid flex max-lg:flex-col grid-cols-12 grid-rows-2 gap-4">
         <h2
-          className={`row-start-1 row-end-2 lg:col-start-2 col-start-1 lg:col-end-6 col-end-12 ${headingLargeTextResponse}`}
+          className={`max-lg:max-w-xl row-start-1 row-end-2 lg:col-start-2 col-start-1 col-end-6 ${headingLargeTextResponse}`}
         >
           Content that scores.
         </h2>
-        <div className="row-start-2 row-end-3 lg:col-start-2 col-start-1 lg:col-end-6 col-span-12">
+        <div className="row-start-2 row-end-3 col-start-2 lg:col-end-6">
           <p
             className={`max-w-[calc(100%-4rem)] pb-6 ${headingSubTextResponse}`}
           >
