@@ -1,16 +1,105 @@
-# React + Vite
+# getHyped Homepage Clone (Demo Project)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **frontend recreation of the homepage** of [https://www.gethyped.nl/](https://www.gethyped.nl/), built as part of a UI/UX implementation task.
 
-Currently, two official plugins are available:
+The goal of this project is to closely replicate the original website’s **design, layout, animations, responsiveness, and interaction behavior** as accurately as possible.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Project Scope
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This implementation includes only the following:
 
-## Expanding the ESLint configuration
+- Homepage only (no additional pages)
+- Mobile responsive version
+- Hamburger menu with full mobile behavior
+- UI/UX interactions closely matching the original site
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+❌ Not included:
+
+- Additional pages
+- Backend functionality
+- API integrations (unless present in original UI behavior)
+
+---
+
+## Tech Stack
+
+### Core
+
+- React `19.2.4`
+
+### Styling
+
+- Tailwind CSS `4.2.2`
+- DaisyUI `5.5.19`
+
+### Animations & Motion
+
+- GSAP `3.14.2`
+- @gsap/react `2.1.2`
+- Framer Motion `12.38.0`
+
+### UI Enhancements
+
+- Swiper `12.1.3`
+- React Icons `5.6.0`
+
+### Utilities
+
+- Lenis (`@studio-freight/lenis`) `1.0.42` (smooth scrolling)
+
+---
+
+## Features
+
+- Pixel-close homepage recreation
+- Fully responsive mobile-first design
+- Animated sections and transitions
+- Custom hamburger menu with mobile interactions
+- Smooth scrolling experience using Lenis
+- Interactive UI elements matching original site behavior
+
+---
+
+## Responsive Behavior
+
+The project is optimized for:
+
+- Mobile devices
+- Tablets
+- Desktop screens
+
+Special focus is given to:
+
+- Navigation collapse behavior
+- Menu animation on mobile
+- Layout adjustments across breakpoints
+
+---
+
+## Getting Started
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start development server
+
+```bash
+npm run dev
+```
+
+### 3. Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## Reference
+
+Original website: https://www.gethyped.nl/
